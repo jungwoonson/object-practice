@@ -1,6 +1,7 @@
 package theater;
 
 public class Theater {
+
     private TicketSeller ticketSeller;
 
     public Theater(TicketSeller ticketSeller) {
@@ -8,6 +9,15 @@ public class Theater {
     }
 
     public void enter(Audience audience) {
-        ticketSeller.sellTo(audience);
+        if (audience.getBag().hasInvitation()) {
+            Ticket ticket = ticketSeller.getTicketOffice().getTicket();
+            audience.getBag().setTicket(ticket);
+            return;
+        }
+
+        Ticket ticket = ticketSeller.getTicketOffice().getTicket();
+        audience.getBag().minusAmount(ticket.getFee());
+        ticketSeller.getTicketOffice().plusAmount(ticket.getFee());
+        audience.getBag().setTicket(ticket);
     }
 }

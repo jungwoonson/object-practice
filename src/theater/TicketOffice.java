@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class TicketOffice {
+
     private Long amount;
     private List<Ticket> tickets = new ArrayList<>();
 
@@ -13,6 +14,7 @@ public class TicketOffice {
         this.tickets.addAll(Arrays.asList(tickets));
     }
 
+    // 티켓을 판매
     public Ticket getTicket() {
         return tickets.remove(0);
     }

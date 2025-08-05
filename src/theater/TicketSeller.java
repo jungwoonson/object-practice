@@ -1,6 +1,7 @@
 package theater;
 
 public class TicketSeller {
+
     private TicketOffice ticketOffice;
 
     public TicketSeller(TicketOffice ticketOffice) {
@@ -9,10 +10,6 @@ public class TicketSeller {
 
     public TicketOffice getTicketOffice() {
         return ticketOffice;
-    }
-
-    public void sellTo(Audience audience) {
-        ticketOffice.plusAmount(audience.buy(ticketOffice.getTicket()));
     }
 }
 
